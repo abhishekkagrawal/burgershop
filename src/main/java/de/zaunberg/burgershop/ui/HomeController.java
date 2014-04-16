@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HomeController {
-	@RequestMapping(value = "/")
-	public String home() {
-		System.out.println("HomeController: Passing through...");
-		return "index";
-	}
 
-	@RequestMapping(value = "/home.html")
-	public String home2() {
-		System.out.println("HomeController2: Passing through...");
-		return "index";
-	}
+    @RequestMapping(value = "/")
+    public String home() {
+        System.out.println("HomeController: Passing through...");
+        return "index";
+    }
+
+    @RequestMapping(value = "/home.html")
+    public String home2() {
+        System.out.println("HomeController2: Passing through...");
+        return "index";
+    }
 
 }

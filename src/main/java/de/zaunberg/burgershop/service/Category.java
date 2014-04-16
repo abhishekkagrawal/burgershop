@@ -7,7 +7,7 @@ package de.zaunberg.burgershop.service;
  * @since 16.11.13 22:44
  */
 public enum Category {
-	BREAD, MEAT, EXTRAS;
 
+    BREAD, MEAT, EXTRAS;
 
 }

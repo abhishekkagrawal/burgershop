@@ -9,9 +9,9 @@ import java.util.List;
  * @since 16.11.13 22:43
  */
 public interface ShopService {
-	List<ShopableItem> getShopableItems();
 
-	Order placeOrder(String... items);
+    List<ShopableItem> getShopableItems();
 
+    Order placeOrder(String... items);
 
 }

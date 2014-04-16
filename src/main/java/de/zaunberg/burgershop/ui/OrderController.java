@@ -3,6 +3,8 @@ package de.zaunberg.burgershop.ui;
 import de.zaunberg.burgershop.service.Order;
 import de.zaunberg.burgershop.service.ShopService;
 import de.zaunberg.burgershop.service.ShopableItem;
+import java.util.LinkedList;
+import javax.servlet.http.HttpServletRequest;
 import net.anotheria.util.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.LinkedList;
 
 /**
  * TODO comment this class
@@ -22,28 +21,28 @@ import java.util.LinkedList;
  */
 @Controller
 public class OrderController {
-	@Autowired
-	private ShopService service;
 
-	private static Logger log = LoggerFactory.getLogger(OrderController.class);
+    @Autowired
+    private ShopService service;
 
-	@RequestMapping(value = "/order.html")
-	public String order(HttpServletRequest request, @RequestParam()String choice1, @RequestParam String choice2, @RequestParam String choice3){
+    private static Logger log = LoggerFactory.getLogger(OrderController.class);
 
-		log.debug("Incoming order "+choice1+", "+choice2+", "+choice3);
-		Order order = service.placeOrder(choice1, choice2, choice3);
+    @RequestMapping(value = "/order.html")
+    public String order(HttpServletRequest request, @RequestParam() String choice1, @RequestParam String choice2, @RequestParam String choice3) {
 
-		log.debug("Placed order "+order);
+        log.debug("Incoming order " + choice1 + ", " + choice2 + ", " + choice3);
+        Order order = service.placeOrder(choice1, choice2, choice3);
 
-		LinkedList<String> orderedItems = new LinkedList<String>();
-		for (ShopableItem item : order.getItems()){
-			orderedItems.add(item.getName());
-		}
-		request.setAttribute("ordereditems", orderedItems);
-		request.setAttribute("totalPrice", NumberUtils.currencyFormat((double)order.getTotalPrice()/100, ','));
+        log.debug("Placed order " + order);
 
+        LinkedList<String> orderedItems = new LinkedList<String>();
+        for (ShopableItem item : order.getItems()) {
+            orderedItems.add(item.getName());
+        }
+        request.setAttribute("ordereditems", orderedItems);
+        request.setAttribute("totalPrice", NumberUtils.currencyFormat((double) order.getTotalPrice() / 100, ','));
 
-		return "confirmation";
-	}
+        return "confirmation";
+    }
 
 }

@@ -10,36 +10,37 @@ import java.util.List;
  * @since 17.11.13 20:40
  */
 public class Order {
-	private List<ShopableItem> items;
 
-	private int totalPrice;
+    private List<ShopableItem> items;
 
-	public Order(){
-		items = new ArrayList<ShopableItem>();
-	}
+    private int totalPrice;
 
-	public void addItem(ShopableItem item){
-		items.add(item);
-		totalPrice += item.getPrice();
-	}
+    public Order() {
+        items = new ArrayList<ShopableItem>();
+    }
 
-	public List<ShopableItem> getItems() {
-		return items;
-	}
+    public void addItem(ShopableItem item) {
+        items.add(item);
+        totalPrice += item.getPrice();
+    }
 
-	public void setItems(List<ShopableItem> items) {
-		this.items = items;
-	}
+    public List<ShopableItem> getItems() {
+        return items;
+    }
 
-	public int getTotalPrice() {
-		return totalPrice;
-	}
+    public void setItems(List<ShopableItem> items) {
+        this.items = items;
+    }
 
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+    public int getTotalPrice() {
+        return totalPrice;
+    }
 
-	public String toString(){
-		return getTotalPrice()+" "+items;
-	}
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String toString() {
+        return getTotalPrice() + " " + items;
+    }
 }

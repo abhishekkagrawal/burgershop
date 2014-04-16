@@ -7,47 +7,48 @@ package de.zaunberg.burgershop.service;
  * @since 16.11.13 22:43
  */
 public class ShopableItem {
-	private int price;
 
-	private String name;
+    private int price;
 
-	private Category category;
+    private String name;
 
-	public ShopableItem(){
+    private Category category;
 
-	}
+    public ShopableItem() {
 
-	public ShopableItem(String aName, int aPrice, Category aCategory){
-		name = aName;
-		price = aPrice;
-		category = aCategory;
-	}
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public ShopableItem(String aName, int aPrice, Category aCategory) {
+        name = aName;
+        price = aPrice;
+        category = aCategory;
+    }
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+    public int getPrice() {
+        return price;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Category getCategory() {
-		return category;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+    public Category getCategory() {
+        return category;
+    }
 
-	public String toString(){
-		return getName()+" "+getCategory()+" "+getPrice();
-	}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String toString() {
+        return getName() + " " + getCategory() + " " + getPrice();
+    }
 }
